@@ -12,7 +12,6 @@ module.exports = async (req, res, next) => {
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    // ✅ FIX: সব fields select করা হচ্ছে
     const user = await User.findById(decoded.id).select(
       "-password -verificationCode -verificationCodeExpire -verificationLastSent"
     );

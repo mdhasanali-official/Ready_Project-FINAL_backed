@@ -17,8 +17,16 @@ const superAdminSchema = new mongoose.Schema(
       type: String,
       default: "super_admin",
     },
+    profileImage: {
+      type: String,
+      default: null,
+    },
+    name: {
+      type: String,
+      default: "Super Admin",
+    },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 superAdminSchema.pre("save", async function () {
